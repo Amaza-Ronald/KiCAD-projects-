@@ -1,0 +1,93 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP NE555DR
+D Single Precision Timer
+K
+F http://www.ti.com/lit/ds/symlink/ne555.pdf
+$ENDCMP
+#
+$CMP XAL5050-682MEB
+D Fixed Inductors 6.8uH 20% 6.4A 29.45mOhms AEC-Q200
+K
+F https://www.coilcraft.com/pdfs/xal50xx.pdf
+$ENDCMP
+#
+$CMP 1977477-2
+D Body Features: Barrier Strip Style Dual Barrier | Primary Product Color Black | Product Orientation Vertical | Configuration Features: Number of Positions 2 | Number of Levels 1 | Number of Rows 1 | Contact Features: Contact Base Material Brass | PCB Contact Termination Area Plating Material Tin | Contact Current Rating (Max) 15 AMP | Dimensions: Wire Size .326  3.31 MMSQ | Product Length .65 INCH | Wire Size 22  16 AWG | Product Length 16.5 MM | Electrical Characteristics: Operating Voltage 300 V | H
+K
+F https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=6-1773454-9_MODUAL_DUAL_BARRIER&DocType=Data%20Sheet&DocLang=English&PartCntxt=1977477-2&DocFormat=pdf
+$ENDCMP
+#
+$CMP ESP32-S3-WROOM-1U-N16R8
+D WiFi Modules - 802.11 [Engineering Samples] SMD Module, ESP32-S3R8, 8 MB Octal PSRAM Die, 16 MB Quad SPI Flash, IPEX Antenna Connector
+K
+F https://www.espressif.com/sites/default/files/documentation/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf
+$ENDCMP
+#
+$CMP ATMEGA328P-PU
+D MICROCHIP - ATMEGA328P-PU. - MICROCONTROLLER MCU, 8 BIT, ATMEGA, 20MHZ, DIP-28
+K
+F https://www.mouser.ca/datasheet/2/268/ATmega48A_PA_88A_PA_168A_PA_328_P_DS_DS40002061B-3050139.pdf
+$ENDCMP
+#
+$CMP PS1240P02BT
+D Piezoelectric Buzzers, Sound Pressure Level=70dB min, Freq.=4000Hz nom
+K
+F https://product.tdk.com/system/files/dam/doc/product/sw_piezo/sw_piezo/piezo-buzzer/catalog/piezoelectronic_buzzer_ps_en.pdf
+$ENDCMP
+#
+$CMP LM7805CT
+D n Complete specifications at 1A load n Output voltage tolerances of +/-2% at Tj = 25C and +/-4% over the temperature range (LM340A) n Line regulation of 0.01% of VOUT/V of VIN at 1A load (LM340A) n Load regulation of 0.3% of VOUT/A (LM340A) n Internal thermal overload protection n Internal short-circuit current limit n Output transistor safe area protection n P+ Product Enhancement tested
+K
+F https://www.datasheet5.com/part/LM7805CT/Integrated%20Circuit%20Technology%20Corp/design-resources
+$ENDCMP
+#
+$CMP SC56-51QBWA_D
+D LED Displays & Accessories 14.2 mm (0.56 inch) Single Digit Numeric Display
+K
+F https://www.kingbrightusa.com/images/catalog/spec/SC56-51QBWA-D.pdf
+$ENDCMP
+#
+$CMP NTCLE100E3103JB0
+D NTC Thermistor Radial leaded 10K 5%
+K
+F https://www.vishay.com/docs/29049/ntcle100.pdf
+$ENDCMP
+#
+$CMP ABT-410-RC
+D PRO SIGNAL - ABT-410-RC - ELECTROMECH TRANSDUCER
+K
+F http://www.farnell.com/datasheets/2683806.pdf
+$ENDCMP
+#
+$CMP PPTC061LFBN-RC
+D CONN HEADER FEMALE 6POS .1" TIN
+K
+F http://www.sullinscorp.com/drawings/78_P(N)PxCxxxLFBN-RC,_10492-H.pdf
+$ENDCMP
+#
+$CMP AB38T-32.768KHZ
+D LOW FREQUENCY CYLINDRICAL WATCH CRYSTAL
+K
+F https://abracon.com/Resonators/AB38T.pdf
+$ENDCMP
+#
+$CMP DS1302N+
+D Trickle-Charge Timekeeping Chip Optional Industrial Temperature Range: -40C to +85C Supports Operation in a Wide Range of Applications
+K
+F https://pdfserv.maximintegrated.com/en/ds/DS1302.pdf
+$ENDCMP
+#
+$CMP SA56-11GWA
+D LED Displays & Accessories HI EFF GRN DIFFUSED
+K
+F https://datasheet.datasheetarchive.com/originals/dk/DKDS-14/261768.pdf
+$ENDCMP
+#
+$CMP FSMRA5JH
+D 50 mA Tactile Switch, Round Actuator, NO, Copper Alloy, Silver Contact Plating, Low Profile, 24 VDC, ALCOSWITCH FSM
+K
+F https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1825027&DocType=Customer+Drawing&DocLang=English&PartCntxt=1-1825027-4
+$ENDCMP
+#
+#End Doc Library

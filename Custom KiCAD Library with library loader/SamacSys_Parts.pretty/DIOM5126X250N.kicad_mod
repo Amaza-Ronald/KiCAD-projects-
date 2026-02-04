@@ -1,0 +1,201 @@
+(footprint "DIOM5126X250N"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "DO-214AC (SMA)")
+	(tags "Schottky Diode")
+	(property "Reference" "D**"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(uuid "e75fad71-6c69-44a5-9357-8ffe57c45621")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+			)
+		)
+	)
+	(property "Value" "DIOM5126X250N"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "1f5d28a9-cbc1-4dcc-95c6-49d484edd48b")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "4e1a3bad-5f5f-4681-824e-22f189dc49cf")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "de62ca53-1655-45b7-9c93-03aaa7eb54c1")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start -2.57 1.28)
+		(end 2.57 1.28)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "6e0a2357-970e-477a-be7b-87c286998434")
+	)
+	(fp_line
+		(start 2.57 -1.28)
+		(end -2.85 -1.28)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "ff94a16e-ef34-4115-bfa1-3290e59191fc")
+	)
+	(fp_line
+		(start -3.4 -1.665)
+		(end 3.4 -1.665)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "bea5aa4d-c3b8-43f8-a0d8-642c633d9699")
+	)
+	(fp_line
+		(start -3.4 1.665)
+		(end -3.4 -1.665)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "29479c6b-adf2-40e7-af71-351bc866acaf")
+	)
+	(fp_line
+		(start 3.4 -1.665)
+		(end 3.4 1.665)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "09b487e3-73cf-4a06-bfee-6b47be1043fc")
+	)
+	(fp_line
+		(start 3.4 1.665)
+		(end -3.4 1.665)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "d46a55cc-dd45-4148-af91-ac67c52b9ce9")
+	)
+	(fp_line
+		(start -2.57 -1.28)
+		(end 2.57 -1.28)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "313b174d-eed1-4142-b7bb-48b657411f5d")
+	)
+	(fp_line
+		(start -2.57 -0.53)
+		(end -1.82 -1.28)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "386c1e35-ff34-4128-934b-6c589a0b7fb8")
+	)
+	(fp_line
+		(start -2.57 1.28)
+		(end -2.57 -1.28)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "85d394b3-15db-4d67-afc9-4173caaba9b8")
+	)
+	(fp_line
+		(start 2.57 -1.28)
+		(end 2.57 1.28)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "68c089f0-3929-4fb5-bcf8-f0ec141bc6f1")
+	)
+	(fp_line
+		(start 2.57 1.28)
+		(end -2.57 1.28)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "3bb8ace4-c96a-4b5d-b34e-90cc707f48ea")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "bb1df42c-e4d1-4fc6-8eae-c78937e2a848")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at -2.1 0 90)
+		(size 1.5 2.1)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "06fdd7b8-360a-456b-8448-6aeefe65b462")
+	)
+	(pad "2" smd rect
+		(at 2.1 0 90)
+		(size 1.5 2.1)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "53237cf1-5b2a-46e1-8d51-601f9b5d1c61")
+	)
+	(embedded_fonts no)
+	(model "/home/ronnie/EDIC_Projects/Custom KiCAD Library with library loader/SamacSys_Parts.3dshapes/SS14.stp"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz -90 -0 -0)
+		)
+	)
+)

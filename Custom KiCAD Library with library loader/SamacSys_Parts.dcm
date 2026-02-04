@@ -1,0 +1,189 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP NE555DR
+D Single Precision Timer
+K
+F http://www.ti.com/lit/ds/symlink/ne555.pdf
+$ENDCMP
+#
+$CMP ESP32-S3-WROOM-1U-N16R8
+D WiFi Modules - 802.11 [Engineering Samples] SMD Module, ESP32-S3R8, 8 MB Octal PSRAM Die, 16 MB Quad SPI Flash, IPEX Antenna Connector
+K
+F https://www.espressif.com/sites/default/files/documentation/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf
+$ENDCMP
+#
+$CMP 1757242
+D PCB header, nominal cross section: 2.5 mm?, color: green, nominal current: 12 A, rated voltage (III/2): 320 V, contact surface: Tin, type of contact: Male connector, Number of potentials: 2, Number of rows: 1, Number of positions per row: 2, number of connections: 2, product range: MSTBA 2,5/..-G, pitch: 5.08 mm, mounting: Wave soldering, pin layout: Linear pinning, solder pin [P]: 3.5 mm, Stecksystem: CLASSIC COMBICON, Locking: without, type of packaging: packed in cardboard
+K
+F http://www.phoenixcontact.com/de/produkte/1757242/pdf
+$ENDCMP
+#
+$CMP XAL5020-801MEC
+D Fixed Inductors 0.8uH 20% 13A 11.8mOhms AEC-Q200
+K
+F https://www.coilcraft.com/pdfs/xal5020.pdf
+$ENDCMP
+#
+$CMP 1977477-2
+D Body Features: Barrier Strip Style Dual Barrier | Primary Product Color Black | Product Orientation Vertical | Configuration Features: Number of Positions 2 | Number of Levels 1 | Number of Rows 1 | Contact Features: Contact Base Material Brass | PCB Contact Termination Area Plating Material Tin | Contact Current Rating (Max) 15 AMP | Dimensions: Wire Size .326  3.31 MMSQ | Product Length .65 INCH | Wire Size 22  16 AWG | Product Length 16.5 MM | Electrical Characteristics: Operating Voltage 300 V | H
+K
+F https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=6-1773454-9_MODUAL_DUAL_BARRIER&DocType=Data%20Sheet&DocLang=English&PartCntxt=1977477-2&DocFormat=pdf
+$ENDCMP
+#
+$CMP PJ-080BH
+D 2.5 x 6.4 mm, 10.0 A, Horizontal, Through Hole, Shielded, Dc Power Jack Connector
+K
+F https://www.sameskydevices.com/product/resource/pj-080bh.pdf
+$ENDCMP
+#
+$CMP SA10-21SURKWA
+D 7-Seg Display 1-digit Red CA 25.4mm Kingbright SA10-21SURKWA 7-Segment LED Display, CA Red 260 mcd RH DP 25.4mm
+K
+F http://uk.rs-online.com/web/p/products/7192500
+$ENDCMP
+#
+$CMP FSMRA5JH04
+D White Button Tactile Switch, SPST 50 mA 3.56mm
+K
+F http://uk.rs-online.com/web/p/products/7561350P
+$ENDCMP
+#
+$CMP NTCLE100E3103JB0
+D NTC Thermistor Radial leaded 10K 5%
+K
+F http://uk.rs-online.com/web/p/products/7546645P
+$ENDCMP
+#
+$CMP ATMEGA328P-PU
+D MICROCHIP - ATMEGA328P-PU. - MICROCONTROLLER MCU, 8 BIT, ATMEGA, 20MHZ, DIP-28
+K
+F http://uk.rs-online.com/web/p/products/9222142P
+$ENDCMP
+#
+$CMP AB38T-32.768KHZ
+D LOW FREQUENCY CYLINDRICAL WATCH CRYSTAL
+K
+F http://uk.rs-online.com/web/p/products/1710594
+$ENDCMP
+#
+$CMP DS1302N+
+D Trickle-Charge Timekeeping Chip Optional Industrial Temperature Range: -40C to +85C Supports Operation in a Wide Range of Applications
+K
+F http://uk.rs-online.com/web/p/products/1898339
+$ENDCMP
+#
+$CMP ABT-410-RC_RS
+D RS PRO 3V ac PCB Mount Buzzer, 80dB
+K
+F 
+$ENDCMP
+#
+$CMP ABT-410-RC
+D TRANSDUCER , Electromech, 1 V, 3 V, 15 mA, 80 dB, 2.04 kHz
+K
+F 
+$ENDCMP
+#
+$CMP BU2032SM-JJ-GTR
+D BATTERY HOLDER COIN 20MM SMD
+K
+F https://datasheet.datasheetarchive.com/originals/dk/DKDS-14/278680.pdf
+$ENDCMP
+#
+$CMP RSCDRRE400MDSE3
+D Pressure Sensor +/-5.8PSI (+/-40kPa) Absolute Male - 0.8" (20.32mm) Tube 24 b 8-DIP (0.524", 13.30mm), Dual Ports, Same Side
+K
+F 
+$ENDCMP
+#
+$CMP IRLML6344TRPBF
+D IRLML6344TRPBF N-channel MOSFET Transistor, 5 A, 30 V, 3-Pin SOT-23
+K
+F http://uk.rs-online.com/web/p/products/7377225P
+$ENDCMP
+#
+$CMP DRV8837DSGR
+D 1.8A Low Voltage Brushed DC Motor Driver (PWM Ctrl)
+K
+F http://uk.rs-online.com/web/p/products/2264761
+$ENDCMP
+#
+$CMP 203555-1222
+D CP65 WTB HDR RA TH REEL BLK 2CKT
+K
+F https://componentsearchengine.com/Datasheets/1/203555-1222.pdf
+$ENDCMP
+#
+$CMP SS14
+D TAIWAN SEMICONDUCTOR - SS14 - SCHOTTKY RECTIFIER, 1A, 40V, DO-214AC
+K
+F https://www.taiwansemi.com/assets/uploads/datasheet/SS12%20SERIES_Q2102.pdf
+$ENDCMP
+#
+$CMP 53261-0271
+D 1.25mm Pitch, PicoBlade PCB Header, Single Row, Right-Angle, Surface Mount, Tin (Sn) Plating, Friction Lock,  Circuits, Tape and Reel
+K
+F https://www.molex.com/pdm_docs/sd/532610271_sd.pdf
+$ENDCMP
+#
+$CMP 171971-0002
+D 2.54mm Pitch SL Header, Single Row, Vertical, LCP, Shrouded, Through Hole, 0.38m Selective Gold (Au) Plating,  Circuits
+K
+F https://www.molex.com/pdm_docs/sd/1719710102_sd.pdf
+$ENDCMP
+#
+$CMP ABPMANN060KGSA3
+D Honeywell Piezoresistive Pressure Sensor, 60kPa Operating Max, Surface Mount, 6-Pin, 200kPa Overload Max, SMT
+K
+F ABPDANT005PGAA
+$ENDCMP
+#
+$CMP STM32L552CCT6
+D 16/32-BITS MICROS
+K
+F https://componentsearchengine.com/Datasheets/1/STM32L552CCT6.pdf
+$ENDCMP
+#
+$CMP 629105150521
+D USB - micro B USB 2.0 Receptacle Connector 5 Position Surface Mount, Right Angle; Through Hole
+K
+F https://www.we-online.com/components/products/datasheet/629105150521.pdf
+$ENDCMP
+#
+$CMP 1SMA5929
+D Zener Diodes - 1SMA5929 , 1500mW, 5V, 1513, SMA
+K
+F https://www.panjit.com.tw/en/Product/downloadPDF/1SMA5929
+$ENDCMP
+#
+$CMP OPA376AIDBVTG4
+D TEXAS INSTRUMENTS - OPA376AIDBVTG4 - Operational Amplifier, Single, 5.5 MHz, 1, 2 V/ s, 2.2V to 5.5V, SOT-23, 5 RoHS Compliant: Yes
+K
+F http://www.ti.com/general/docs/lit/getliterature.tsp?genericPartNumber=OPA376&fileType=pdf
+$ENDCMP
+#
+$CMP R302302000
+D Radiall Straight Miniature 50 PCB Mount MML Connector, Receptacle, Solder Termination Coaxial
+K
+F 
+$ENDCMP
+#
+$CMP TP4056X
+D PMIC - Battery Management SOP-8_EP_150mil RoHS
+K
+F https://datasheet.lcsc.com/szlcsc/Nanjing-Extension-Microelectronics-TP4056X_C191323.pdf
+$ENDCMP
+#
+$CMP ME6211C33M5G-N
+D Fixed 6V 3.3V 500mA SOT-23-5 Low Dropout Regulators(LDO) RoHS
+K
+F https://datasheet.lcsc.com/szlcsc/1811131510_MICRONE-Nanjing-Micro-One-Elec-ME6211C33M5G-N_C82942.pdf
+$ENDCMP
+#
+$CMP DW06D
+D SOT-23-6 Battery Protection ICs RoHS
+K
+F https://www.alldatasheet.com/view.jsp?Searchword=DW06D
+$ENDCMP
+#
+#End Doc Library

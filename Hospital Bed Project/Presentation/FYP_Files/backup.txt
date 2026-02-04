@@ -1,0 +1,289 @@
+import paho.mqtt.client as mqtt
+import json
+import time
+import serial
+import datetime
+import os
+
+# Serial setup
+def connect_serial():
+    """Attempts to connect to the serial port and handles reconnection."""
+    ports = ['/dev/ttyACM0', '/dev/ttyUSB0']
+    for port in ports:
+        try:
+            ser = serial.Serial(port, 9600, timeout=1)
+            print(f"Connected to {port}")
+            return ser
+        except serial.SerialException:
+            print(f"Failed to connect to {port}, trying next...")
+    return None
+
+# MQTT setup
+client = mqtt.Client()
+client.connect("test.mosquitto.org", 1883, 60)
+
+#Serial connection
+ser = connect_serial()
+
+LOG_FILE = "alerts.log"  # Ensure this is defined
+
+def log_alert(alert_type, message, severity='medium'):
+    try:
+        # Create alert entry
+        alert = {
+            'timestamp': datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            'type': alert_type,
+            'message': message,
+            'severity': severity
+        }
+
+        # Ensure directory exists (if LOG_FILE has a directory path)
+        log_dir = os.path.dirname(LOG_FILE)
+        if log_dir:  # Avoid issues if LOG_FILE is just a filename
+            os.makedirs(log_dir, exist_ok=True)
+
+        # Append to log file
+        with open(LOG_FILE, 'a') as f:
+            f.write(json.dumps(alert) + '\n')
+
+        print(f"Alert logged: {message}")
+        
+
+    except Exception as e:
+        print(f"Error logging alert: {e}")
+
+def parse_serial_data(line):
+    try:
+        data = {}
+        parts = line.split(',')
+        for part in parts:
+            if ':' in part:
+                key, value = part.split(':')
+                data[key.strip()] = value.strip()
+        
+        if not data:  # If parsing failed
+            print(f"Failed to parse line: {line}")
+            return
+
+        # Handle different message types
+        msg_type = data.get('type')
+        
+        if msg_type == 'rfid':
+            print(f"Publishing RFID data: {data['message']}")  # Debug print
+            client.publish(
+                'electrical/worker/verify',
+                json.dumps({
+                    "type": "rfid",
+                    "message": data['message'],
+                    "timestamp": time.time()
+                })
+            )
+            print("RFID data published")  # Debug print
+            log_alert('status', data['message'], 'medium')
+            
+           
+            
+        elif msg_type == 'alert':
+            client.publish(
+                'electrical/alerts/alarm',
+                json.dumps({
+                    'type': 'alert',
+                    'message': data['message'],
+                    'timestamp': time.time()
+                })
+            )
+            print(f"Published alert: {data['message']}")
+
+            if 'Unauthorized' in data['message']:
+                log_alert('access', 'Unauthorized access attempt detected', 'critical')
+            elif 'Alarm' in data['message']:
+
+                log_alert('system', data['message'], 'high')
+            
+        elif msg_type == 'sensor':
+            if 'voltage' in data:
+                client.publish(
+                    'electrical/sensor/voltage',
+                    json.dumps({'value': float(data['voltage'])})
+                )
+            if 'current' in data:
+                client.publish(
+                    'electrical/sensor/current',
+                    json.dumps({'value': float(data['current'])})
+                )
+                
+        elif msg_type == 'status':
+            client.publish(
+                'electrical/status/system',
+                json.dumps({
+                    'status': data['message'],
+                    'timestamp': time.time()
+                })
+            )
+            
+        elif msg_type == 'proximity':
+            client.publish(
+                'electrical/pole/3/proximity',
+                json.dumps({
+                    'status': data['message'],
+                    'timestamp': time.time()
+                })
+            )
+           
+
+        # Handle unauthorized access
+        elif msg_type == 'access' and data.get('status') == 'unauthorized':
+            log_alert('access', "SECURITY ALERT: Unauthorized access attempt detected", 'critical')
+
+    except Exception as e:
+        print(f"Error parsing serial data: {e}")
+        print(f"Problematic line: {line}")
+
+def on_message(client, userdata, message):
+    try:
+        data = json.loads(message.payload.decode())
+        
+        # Handle proximity alerts
+        if message.topic == 'electrical/pole/3/proximity':
+            if data.get('status') == 'worker_present':
+                alert_msg = "⚠️ ALERT: Worker detected in proximity of power line!"
+                log_alert('proximity', alert_msg, 'high')
+        
+        # Handle unauthorized access
+        elif message.topic == 'electrical/alerts/alarm':
+            if data.get('status') == 'unauthorized':
+                alert_msg = "🚨 SECURITY ALERT: Unauthorized access detected!"
+                log_alert('access', alert_msg, 'critical')
+               
+    except Exception as e:
+        print(f"Error handling MQTT message: {e}")
+
+while True:
+    try:
+        if ser is None or not ser.is_open:
+            print("Serial connection lost. Reconnecting...")
+            ser = connect_serial()
+            if ser is None:
+                print("Failed to reconnect to serial device.")
+                time.sleep(5)
+                continue
+
+        if ser.in_waiting:
+            line = ser.readline().decode('utf-8').strip()
+            if line:
+                print(f"Received from Arduino: {line}")
+                parse_serial_data(line)
+                
+            data = parse_serial_data(line)
+            if data and 'type' in data:
+                # Handle RFID verification
+                if data['type'] == 'rfid':
+                    client.publish(
+                        'electrical/worker/verify',
+                        json.dumps({
+                            "type": "rfid",
+                            "message": data['message'],
+                            "timestamp": time.time()
+                        })
+                    )
+                    log_alert('access', data['message'], 'low')
+                    
+                # Handle sensor data
+                elif data['type'] == 'sensor':
+                    if 'voltage' in data:
+                        client.publish(
+                            'electrical/sensor/voltage',
+                            json.dumps({"value": float(data['voltage'])})
+                        )
+                    if 'current' in data:
+                        client.publish(
+                            'electrical/sensor/current',
+                            json.dumps({"value": float(data['current'])})
+                        )
+
+                # Handle proximity data at the pole card.
+                elif data['type'] == 'proximity':
+                    client.publish(
+                        'electrical/pole/3/proximity',
+                        json.dumps({
+                            "status": data['message'],
+                            "timestamp": time.time()
+                        })
+                    )
+                    
+                    # Also publish proximity alerts
+                    if data['message'] == 'worker_present':
+                        client.publish(
+                            'electrical/alerts/proximity',
+                            json.dumps({
+                                "message": "Worker detected in safety zone",
+                                "type": "warning",
+                                "timestamp": time.time()
+                            })
+                        )
+                        
+                        
+                    elif data['message'] == 'no_worker':
+                        client.publish(
+                            'electrical/alerts/proximity',
+                            json.dumps({
+                                "message": "No worker in safety zone",
+                                "type": "info",
+                                "clear": True,
+                                "timestamp": time.time()
+                            })
+                        )
+
+                # Handle status messages
+                elif data['type'] == 'status':
+                    client.publish(
+                        'electrical/status/system',
+                        json.dumps({
+                            "message": data['message'],
+                            "timestamp": time.time()
+                        })
+                    )
+
+                # Handle alert messages
+                elif data['type'] == 'alert':
+                    if 'Unauthorized' in data['message']:
+                        client.publish(
+                            'electrical/alerts/proximity',
+                            json.dumps({
+                                "message": "⚠️ Unauthorized person detected in safety zone!",
+                                "type": "danger",
+                                "timestamp": time.time()
+                            })
+                        )
+
+                        log_alert('access', 'Unauthorized access attempt detected', 'critical')
+                    if 'Alarm' in data['message']:
+                        client.publish(
+                            'electrical/alerts/alarm',
+                            json.dumps({
+                                "message": "🚨 Safety violation: Alarm activated!",
+                                "type": "danger",
+                                "timestamp": time.time()
+                            })
+                        )
+
+                        log_alert('system', data['message'], 'high')
+
+        time.sleep(0.1)
+
+    except serial.SerialException as e:
+        print(f"Serial communication error: {e}. Attempting to reconnect...")
+        ser = None  # Force reconnection attempt in the next iteration
+        time.sleep(5)
+    except KeyboardInterrupt:
+        print("\nClosing connections...")
+        if ser:
+            ser.close()
+        client.disconnect()
+        print("Program terminated")
+        break
+    except Exception as e:
+        print(f"Error in main loop: {e}")
+        time.sleep(1)
+
+client.disconnect()
